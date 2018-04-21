@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Railsgirls</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
+        <!--    <div class="container">-->
+        <!--        <div class="navbar-header">-->
+        <!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+        <!--                <span class="sr-only">Toggle navigation</span>-->
+        <!--                <span class="icon-bar"></span>-->
+        <!--                <span class="icon-bar"></span>-->
+        <!--                <span class="icon-bar"></span>-->
+        <!--            </button>-->
+        <!--            <a class="navbar-brand" href="/">The Idea app</a>-->
+        <!--        </div>-->
+        <!--        <div class="collapse navbar-collapse">-->
+        <!--            <ul class="nav navbar-nav">-->
+        <!--                <li class="active"><a href="/ideas">Ideas</a></li>-->
+        <!--                <li><a href="/pages/info">Info</a></li>-->
+        <!--            </ul>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</nav>-->
+        <div id="content" class="en">
+            <div class="side text-center">
+                <div class="side-logo">
+                    <a href="#" style="cursor: pointer;">
+                        <div class="side-logoPic" style="background-image: url('https://unipos.me/q/image/logo');"></div>
+                    </a>
+                </div>
+                <div class="side-companyName">
+                    Framgia
+                </div>
+                <div class="sidePoint cf">
+                    <div class="sidePoint-block">
+                        <span class="sidePoint_label">Points you have received</span><br/>
+                        <span class="sidePoint_num sidePoint_num-received ico-point">
+                            <span class="sidePoint_txt-point">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                1223
+                            </span>
+                        </span>
+                    </div>
+                    <div class="sidePoint-block">
+                        <span class="sidePoint_label">Points you have received</span>
+                        <span class="sidePoint_num sidePoint_num-available ico-availablePoint">
+                            <span class="sidePoint_txt-point">
+                                222
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="side_line">
+                    
+                </div>
+                <nav class="sideNav">
+                    <div class="sideNav-item">
+                        <a class="is-active" style="cursor: pointer;" target="_blank" href="#">
+                            <span class="sideNav-icon ico-popup"><i class="fa fa-comments" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">Timeline</span>
+                        </a>
+                    </div>
+                    <div class="sideNav-item">
+                        <a style="cursor: pointer;" target="_blank" href="#">
+                            <span class="sideNav-icon ico-admin"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">Profile</span>
+                        </a>
+                    </div>
+                    <div class="sideNav-item">
+                        <a style="cursor: pointer;" target="_blank" href="#">
+                            <span class="sideNav-icon ico-chart"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="sideNav-item">
+                        <a style="cursor: pointer;" target="_blank" href="#">
+                            <span class="sideNav-icon ico-dogEar"><i class="fa fa-file" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">CEO message</span>
+                        </a>
+                    </div>
+                    <div class="sideNav-item">
+                        <a style="cursor: pointer;" target="_blank" href="/pages/info">
+                            <span class="sideNav-icon ico-hint"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">Info</span>
+                        </a>
+                    </div>
+                    <div class="sideNav-item">
+                        <a style="cursor: pointer;" target="_blank" href="#">
+                            <span class="sideNav-icon ico-chart"><i class="fa fa-question" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">Help Center</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="header cf">
+                <div class="header-line"></div>
+                <div class="headerProfile">
+                    <div class="headerProfile-picBtn" onclick="myFunction()">
+                        <div class="headerProfile-pic" style="background-image: url('https://unipos.me/q/image/513e7bc2-f1ac-4f8e-86d7-99255d6c4bc1');">
+                        </div>
+                    </div>
+                    <div class="headerProfile-panel">
+                        <span class="headerProfile-arrow"></span>
+                        <div class="headerProfile-pic-large" style="background-image: url();"></div>
+                        <p class="headerProfile-name">Pham Thu Hang</p>
+                        <p class="headerProfile-id">pham.thu.hang</p>
+                        <div class="headerProfile-point cf">
+                            
+                        </div>
+                        <div class="headerProfile-line"></div>
+                        <a class="headerProfile-menu-config">
+                            <span class="headerProfile-icon-memberInfo ico-config"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                            <span class="headerProfile-txt-memberInfo">Settings</span>
+                        </a>
+                        <a class="headerProfile-menu-config">
+                            <span class="headerProfile-icon-logout icon-logout"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                            <span class="headerProfile-txt-logout">Log Out</span>
+                        </a>
+                    </div>
+    
+                </div>
+                <div class="headerSearch"></div>
+                <div class="headerNotify"></div>
+            </div>
+            <div class="mainWrap">
+                <div class="main">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                Rails Girls <%= Time.now.year %>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+    </body>
+    <script>
+        function myFunction() {
+            var myDropdown = $(".headerProfile-panel");
+            if (myDropdown.hasClass('show')) {
+                myDropdown.removeClass('show');
+            } else {
+                $(".headerProfile-panel").addClass("show");
+            }
+        }
+        // Close the dropdown if the user clicks outside of it
+        $(".headerProfile-panel").blur(function(){
+            $(".headerProfile-panel").removeClass("show");
+        });
+    
+    </script>
+</html>
