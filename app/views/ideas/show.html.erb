@@ -6,6 +6,7 @@
 <p>
     <h2 class="clap-title"><i>Name: </i><%= @idea.name %></h2>
 </p>
+<p><b>Post at: </b><%= @idea.created_at %></p>
 <p class="descript-idea">
     <%= @idea.description %>
 </p>
@@ -24,7 +25,7 @@
         <h2 class="clap-title"><i class="fa fa-comment" aria-hidden="true"></i> Comments</h2>
         <% @comments.each do |comment| %>
             <div>
-                <strong><%= comment.user_name %></strong>
+                <strong><%= comment.user_name %></strong> Post at: <%= comment.created_at %>
                 <br />
                 <p><%= comment.body %></p>
                 <% if (current_user.email == comment.user_name) %>
