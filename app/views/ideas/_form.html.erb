@@ -9,14 +9,13 @@
             </ul>
         </div>
     <% end %>
-
     <div class="field">
-        <%= form.label :name %>
+        <h2 class="clap-title"><i>Name: </i></h2>
         <%= form.text_field :name %>
     </div>
-
     <div class="field">
         <%= form.label :description %>
+        <br>
         <%= form.text_area :description %>
     </div>
 
@@ -26,6 +25,6 @@
     </div>
 
     <div class="actions">
-        <%= form.submit %>
+        <%= form.submit("Send", class: "btn-s")  %>
     </div>
 <% end %>

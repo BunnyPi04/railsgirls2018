@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @clap.user_name %>
+</p>
+
+<p>
+  <strong>Idea:</strong>
+  <%= @clap.idea_id %>
+</p>
+
+<%= link_to 'Edit', edit_clap_path(@clap) %> |
+<%= link_to 'Back', claps_path %>

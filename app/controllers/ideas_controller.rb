@@ -5,11 +5,17 @@ class IdeasController < ApplicationController
   # GET /ideas.json
   def index
     @ideas = Idea.all
+    @cmtCount = 0
+    @clapCount = 0
   end
 
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @comments = @idea.comments.all
+    @comment = @idea.comments.build
+    @claps = @idea.claps.all
+    @clap = @idea.claps.build
   end
 
   # GET /ideas/new

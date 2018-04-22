@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Claps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>Idea</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @claps.each do |clap| %>
+      <tr>
+        <td><%= clap.user_name %></td>
+        <td><%= clap.idea_id %></td>
+        <td><%= link_to 'Show', clap %></td>
+        <td><%= link_to 'Edit', edit_clap_path(clap) %></td>
+        <td><%= link_to 'Destroy', clap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clap', new_clap_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@clap) do |form| %>
+  <% if @clap.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clap.errors.count, "error") %> prohibited this clap from being saved:</h2>
+
+      <ul>
+      <% clap.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h2 class="clap-title">Clap to this post</h2>
+  <table class="cmt-tb">
+    <tr>
+      <td><%= form.label :user_name %></td>
+      <td><%= form.text_field :user_name %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="text-right"><%= form.submit("Send", class: "btn btn-warning")  %></td>
+    </tr>
+  </table>
+<% end %>
+

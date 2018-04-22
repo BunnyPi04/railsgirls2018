@@ -13,25 +13,15 @@
     </head>
 
     <body>
-        <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
-        <!--    <div class="container">-->
-        <!--        <div class="navbar-header">-->
-        <!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
-        <!--                <span class="sr-only">Toggle navigation</span>-->
-        <!--                <span class="icon-bar"></span>-->
-        <!--                <span class="icon-bar"></span>-->
-        <!--                <span class="icon-bar"></span>-->
-        <!--            </button>-->
-        <!--            <a class="navbar-brand" href="/">The Idea app</a>-->
-        <!--        </div>-->
-        <!--        <div class="collapse navbar-collapse">-->
-        <!--            <ul class="nav navbar-nav">-->
-        <!--                <li class="active"><a href="/ideas">Ideas</a></li>-->
-        <!--                <li><a href="/pages/info">Info</a></li>-->
-        <!--            </ul>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--</nav>-->
+        <p class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
         <div id="content" class="en">
             <div class="side text-center">
                 <div class="side-logo">
@@ -66,37 +56,37 @@
                 </div>
                 <nav class="sideNav">
                     <div class="sideNav-item">
-                        <a class="is-active" style="cursor: pointer;" target="_blank" href="#">
-                            <span class="sideNav-icon ico-popup"><i class="fa fa-comments" aria-hidden="true"></i></span>
-                            <span class="sideNav-txt">Timeline</span>
+                        <a class="is-active" style="cursor: pointer;" href="/ideas/new">
+                            <span class="sideNav-icon ico-popup"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <span class="sideNav-txt">New idea</span>
                         </a>
                     </div>
                     <div class="sideNav-item">
-                        <a style="cursor: pointer;" target="_blank" href="#">
+                        <a style="cursor: pointer;" href="#">
                             <span class="sideNav-icon ico-admin"><i class="fa fa-user" aria-hidden="true"></i></span>
                             <span class="sideNav-txt">Profile</span>
                         </a>
                     </div>
                     <div class="sideNav-item">
-                        <a style="cursor: pointer;" target="_blank" href="#">
+                        <a style="cursor: pointer;" href="/">
                             <span class="sideNav-icon ico-chart"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
                             <span class="sideNav-txt">Dashboard</span>
                         </a>
                     </div>
                     <div class="sideNav-item">
-                        <a style="cursor: pointer;" target="_blank" href="#">
+                        <a style="cursor: pointer;" href="#">
                             <span class="sideNav-icon ico-dogEar"><i class="fa fa-file" aria-hidden="true"></i></span>
                             <span class="sideNav-txt">CEO message</span>
                         </a>
                     </div>
                     <div class="sideNav-item">
-                        <a style="cursor: pointer;" target="_blank" href="/pages/info">
+                        <a style="cursor: pointer;" href="/pages/info">
                             <span class="sideNav-icon ico-hint"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></span>
                             <span class="sideNav-txt">Info</span>
                         </a>
                     </div>
                     <div class="sideNav-item">
-                        <a style="cursor: pointer;" target="_blank" href="#">
+                        <a style="cursor: pointer;" href="#">
                             <span class="sideNav-icon ico-chart"><i class="fa fa-question" aria-hidden="true"></i></span>
                             <span class="sideNav-txt">Help Center</span>
                         </a>
@@ -105,45 +95,65 @@
             </div>
             <div class="header cf">
                 <div class="header-line"></div>
-                <div class="headerProfile">
-                    <div class="headerProfile-picBtn" onclick="myFunction()">
-                        <div class="headerProfile-pic" style="background-image: url('https://unipos.me/q/image/513e7bc2-f1ac-4f8e-86d7-99255d6c4bc1');">
+                <% if user_signed_in? %>
+                    <div class="headerProfile">
+                        <div class="headerProfile-picBtn" onclick="myFunction()">
+                            <div class="headerProfile-pic" style="background-image: url('https://unipos.me/q/image/513e7bc2-f1ac-4f8e-86d7-99255d6c4bc1');">
+                            </div>
+                        </div>
+                        <div class="headerProfile-panel">
+                            <span class="headerProfile-arrow"></span>
+                            <div class="headerProfile-pic-large" style="background-image: url();"></div>
+                            <p class="headerProfile-id">Logged in as</p>
+                            <p class="headerProfile-id"><strong><%= current_user.email %></strong></p>
+                            <div class="headerProfile-point cf">
+                                
+                            </div>
+                            <div class="headerProfile-line"></div>
+                            <a class="headerProfile-menu-config" href="<% edit_user_registration_path %>">
+                                <span class="headerProfile-icon-memberInfo ico-config"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                                <span class="headerProfile-txt-memberInfo">Edit profile</span>
+                            </a>
+                            <%= link_to destroy_user_session_path, method: :delete, :class => 'headerProfile-menu-config' do  %>
+                                <span class="headerProfile-icon-logout icon-logout"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                                <span class="headerProfile-txt-logout">Logout</span>
+                            <% end %>
                         </div>
                     </div>
-                    <div class="headerProfile-panel">
-                        <span class="headerProfile-arrow"></span>
-                        <div class="headerProfile-pic-large" style="background-image: url();"></div>
-                        <p class="headerProfile-name">Pham Thu Hang</p>
-                        <p class="headerProfile-id">pham.thu.hang</p>
-                        <div class="headerProfile-point cf">
-                            
+                <% else %>
+                    <div class="headerProfile">
+                        <div class="headerProfile-picBtn" onclick="myFunction()">
+                            <div class="headerProfile-pic" style="background-image: url('data:image/png;base64,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');">
                         </div>
-                        <div class="headerProfile-line"></div>
-                        <a class="headerProfile-menu-config">
-                            <span class="headerProfile-icon-memberInfo ico-config"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                            <span class="headerProfile-txt-memberInfo">Settings</span>
-                        </a>
-                        <a class="headerProfile-menu-config">
-                            <span class="headerProfile-icon-logout icon-logout"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-                            <span class="headerProfile-txt-logout">Log Out</span>
-                        </a>
+                        </div>
+                        <div class="headerProfile-panel">
+                            <div class="headerProfile-line"></div>
+                            <a class="headerProfile-menu-config" href="<% new_user_registration_path %>">
+                                <span class="headerProfile-icon-memberInfo ico-config"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                                <span class="headerProfile-txt-memberInfo">Sign in</span>
+                            </a>
+                            <a class="headerProfile-menu-config" href="<% new_user_session_path %>">
+                                <span class="headerProfile-icon-logout icon-logout"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
+                                <span class="headerProfile-txt-logout">Sign up</span>
+                            </a>
+                        </div>
                     </div>
-    
-                </div>
+                <% end %>
                 <div class="headerSearch"></div>
                 <div class="headerNotify"></div>
             </div>
             <div class="mainWrap">
                 <div class="main">
+                    <% if notice %>
+                        <p class="alert alert-success"><%= notice %></p>
+                    <% end %>
+                    <% if alert %>
+                        <p class="alert alert-danger"><%= alert %></p>
+                    <% end %>
                     <%= yield %>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="container">
-                Rails Girls <%= Time.now.year %>
-            </div>
-        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
     </body>

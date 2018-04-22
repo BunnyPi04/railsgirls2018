@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :claps
+  resources :comments
   get 'pages/info'
   root 'ideas#index'
   resources :ideas

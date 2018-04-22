@@ -1,19 +1,36 @@
-<p id="notice"><%= notice %></p>
-
+<div class="btn-div-show">
+    <div class="btn-s"><%= link_to 'Edit', edit_idea_path(@idea) %></div>
+    <div class="btn-s"><%= link_to 'Back', ideas_path %></div>
+    <div class="btn-d"><%= link_to 'Destroy', @idea, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+</div>
 <p>
-  <strong>Name:</strong>
-  <%= @idea.name %>
+    <h2 class="clap-title"><i>Name: </i><%= @idea.name %></h2>
 </p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @idea.description %>
+<p class="descript-idea">
+    <%= @idea.description %>
 </p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@idea.picture_url, width: 300) if @idea.picture.present? %>
-</p>
-
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+<%= image_tag(@idea.picture_url, width: 300) if @idea.picture.present? %>
+    <div class="col-md-11 col-md-offset-1">
+        <h3><img src="https://cdn2.iconfinder.com/data/icons/hand-gestures-7/400/Hands-12-512.png" style="width: 20px;"> Clap</h3>
+        <% @claps.each do |clap| %>
+            <div>
+                <strong><%= clap.user_name %></strong> has clap to this post!
+                <br />
+            </div>
+        <% end %>
+    </div>
+    <br/><br/>
+    <hr>
+    <div class="col-md-11 col-md-offset-1">
+        <h3><i class="fa fa-comment" aria-hidden="true"></i> Comments</h3>
+        <% @comments.each do |comment| %>
+            <div>
+                <strong><%= comment.user_name %></strong>
+                <br />
+                <p><%= comment.body %></p>
+                <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
+        <% end %>
+        <%= render 'claps/form' %>
+        <%= render 'comments/form' %>
+    </div>
