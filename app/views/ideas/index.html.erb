@@ -23,7 +23,6 @@
                             <div class="btn-s"><%= link_to 'Edit', edit_idea_path(idea) %></div>
                             <div class="btn-d"><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></div>
                         </div>
-
                         <div class="card_picFrom" style="cursor: pointer;">
                             <img src="../../images/bulb-money-flat.png">
                         </div>
@@ -39,6 +38,8 @@
                             </div>
                             <div class="card_footer cf">
                                 <% idea.claps.each do |clap| @clapCount += 1 end %>
+                                <% idea.comments.each do |comment| @cmtCount += 1 end %>
+                                <h3><i class="fa fa-comment" aria-hidden="true"></i><span class="clap_count"><%= @cmtCount %> comment(s) to this post!</span></h3>
                                 <h3><img src="https://cdn2.iconfinder.com/data/icons/hand-gestures-7/400/Hands-12-512.png" style="width: 20px;"><span class="clap_count"><%= @clapCount %> clap(s) to this post!</span></h3>
                             </div>
                         </div>
