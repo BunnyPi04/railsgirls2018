@@ -1,5 +1,6 @@
 <%= form_for(@comment) do |f| %>
   <%= f.hidden_field :idea_id %>
+  <%= f.hidden_field :user_name, :value => current_user.email %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -14,16 +15,12 @@
   <h2 class="clap-title">Comment to this post</h2>
    <table class="cmt-tb">
     <tr>
-      <td><%= f.label :user_name %></td>
-      <td><%= f.text_field :user_name %></td>
-    </tr>
-    <tr>
       <td><%= f.label :body %></td>
       <td><%= f.text_area :body %></td>
     </tr>
     <tr>
       <td></td>
-      <td class="text-right"><%= f.submit("Send", class: "btn-s")  %></td>
+      <td class="text-right"><%= f.submit("Send", :class => "btn-s")  %></td>
     </tr>
   </table>
 <% end %>

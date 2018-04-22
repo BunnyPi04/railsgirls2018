@@ -1,4 +1,6 @@
 <%= form_for(@clap) do |form| %>
+  <%= form.hidden_field :idea_id %>
+  <%= form.hidden_field :user_name, :value => current_user.email %>
   <% if @clap.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(clap.errors.count, "error") %> prohibited this clap from being saved:</h2>

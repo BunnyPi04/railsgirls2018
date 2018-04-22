@@ -30,6 +30,9 @@ body {
     color: #808080;
     margin: 0 auto;
 }
+.body a {
+    color: #808080;
+}
 .show {
     display: block !important;
 }
