@@ -28,7 +28,7 @@ class ClapsController < ApplicationController
 
     respond_to do |format|
       if @clap.save
-        format.html { redirect_to @clap, notice: 'Clap was successfully created.' }
+        format.html { redirect_to idea_path(@clap.idea_id), notice: 'Clap was successfully created.' }
         format.json { render :show, status: :created, location: @clap }
       else
         format.html { render :new }

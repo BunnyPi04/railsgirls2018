@@ -11,7 +11,7 @@
 </p>
 <%= image_tag(@idea.picture_url, width: 300) if @idea.picture.present? %>
     <div class="col-md-11 col-md-offset-1">
-        <h3><img src="https://cdn2.iconfinder.com/data/icons/hand-gestures-7/400/Hands-12-512.png" style="width: 20px;"> Clap</h3>
+        <h2 class="clap-title"><img src="https://cdn.iconscout.com/public/images/icon/free/png-512/clap-hand-medium-skin-tone-3443c3f08f57c977-512x512.png" style="width: 20px;"> Clap</h2>
         <% @claps.each do |clap| %>
             <div>
                 <strong><%= clap.user_name %></strong> has clap to this post!
@@ -19,16 +19,17 @@
             </div>
         <% end %>
     </div>
-    <br/><br/>
     <hr>
     <div class="col-md-11 col-md-offset-1">
-        <h3><i class="fa fa-comment" aria-hidden="true"></i> Comments</h3>
+        <h2 class="clap-title"><i class="fa fa-comment" aria-hidden="true"></i> Comments</h2>
         <% @comments.each do |comment| %>
             <div>
                 <strong><%= comment.user_name %></strong>
                 <br />
                 <p><%= comment.body %></p>
+                <% if (current_user.email == comment.user_name) %>
                 <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                <% end %>
             </div>
         <% end %>
         <%= render 'claps/form' %>

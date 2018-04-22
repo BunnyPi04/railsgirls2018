@@ -12,15 +12,10 @@
       </ul>
     </div>
   <% end %>
-  <h2 class="clap-title">Clap to this post</h2>
   <table class="cmt-tb">
     <tr>
-      <td><%= form.label :user_name %></td>
-      <td><%= form.text_field :user_name %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td class="text-right"><%= form.submit("Send", class: "btn btn-warning")  %></td>
+      <td><%= form.submit("Clap", class: "btn-s")  %></td>
+      <td><h2 class="clap-title">Clap to this post</h2></td>
     </tr>
   </table>
 <% end %>

@@ -33,23 +33,16 @@
                     Framgia
                 </div>
                 <div class="sidePoint cf">
-                    <div class="sidePoint-block">
-                        <span class="sidePoint_label">Points you have received</span><br/>
-                        <span class="sidePoint_num sidePoint_num-received ico-point">
-                            <span class="sidePoint_txt-point">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                1223
-                            </span>
+                    <span class="sidePoint_label">Welcome to Framgia app</span><br/>
+                    <span class="sidePoint_num sidePoint_num-received ico-point">
+                        <span class="sidePoint_txt-point">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
                         </span>
-                    </div>
-                    <div class="sidePoint-block">
-                        <span class="sidePoint_label">Points you have received</span>
-                        <span class="sidePoint_num sidePoint_num-available ico-availablePoint">
-                            <span class="sidePoint_txt-point">
-                                222
-                            </span>
-                        </span>
-                    </div>
+                    </span>
                 </div>
                 <div class="side_line">
                     
@@ -62,9 +55,9 @@
                         </a>
                     </div>
                     <div class="sideNav-item">
-                        <a style="cursor: pointer;" href="#">
+                        <a style="cursor: pointer;" href="<% edit_user_registration_path %>">
                             <span class="sideNav-icon ico-admin"><i class="fa fa-user" aria-hidden="true"></i></span>
-                            <span class="sideNav-txt">Profile</span>
+                            <span class="sideNav-txt">Edit Profile</span>
                         </a>
                     </div>
                     <div class="sideNav-item">
@@ -98,7 +91,7 @@
                 <% if user_signed_in? %>
                     <div class="headerProfile">
                         <div class="headerProfile-picBtn" onclick="myFunction()">
-                            <div class="headerProfile-pic" style="background-image: url('https://unipos.me/q/image/513e7bc2-f1ac-4f8e-86d7-99255d6c4bc1');">
+                            <div class="headerProfile-pic" style="background-image: url('<%= current_user.gravatar_url %>');">
                             </div>
                         </div>
                         <div class="headerProfile-panel">
